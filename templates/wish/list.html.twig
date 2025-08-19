@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wishes list - Bucket List{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>La liste des buckets de la bucket-list !</h1>
+        <div class="wish-list">
+            {% for wish in wishes %}
+                <a href="{{ path('wish_detail', {'id' : wish.id}) }}">
+                    <div class="wish">
+                        {{ wish.title }}
+                    </div>
+                </a>
+            {% endfor %}
+
+            <div class="wish" data-controller="hello" data-action="click->hello#rayer">Battre Camille à Skull King
+                (répétable)
+            </div>
+        </div>
+    </main>
+{% endblock %}

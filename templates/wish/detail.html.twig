@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish Detail - Bucket List{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="wish-detail">
+            <h2>{{ wish.title }}</h2>
+            <p>
+                {{ wish.description }}
+            </p>
+            <div class="bucket-footer">
+                <div>{{ wish.author }}</div>
+                <div>-</div>
+                <div>{{ wish.dateCreated|date('d-m-Y') }}</div>
+            </div>
+        </div>
+        <a href="{{ path('update_wish', {id: wish.id}) }}">Edit</a>
+        <a href="{{ path('delete_wish', {id: wish.id}) }}">Delete</a>
+    </main>
+{% endblock %}

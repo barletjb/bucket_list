@@ -1,0 +1,161 @@
+:root {
+    --header-footer: linear-gradient(35deg, #98e1ff, #f36bf3, #f17171, #fdd784);
+    --wishes: linear-gradient(35deg, #b4e7ff, #ff98ff, #ff9494, #ffe59e);
+    --wishes-clicked: linear-gradient(35deg, #cfefff, #ffcaff, #ffb9b9, #fff3d1);
+    --links: white;
+    --main-color: white;
+    --box-shadows: 5px 5px 7px rgba(82, 159, 211, 0.7);
+}
+
+header {
+    background: var(--header-footer);
+    padding: 10px 0;
+    width: 80%;
+    margin: auto;
+    border-radius: 0 0 20px 20px;
+
+    img {
+        max-width: 50px;
+    }
+
+    .nav-logo {
+        margin-left: 40px;
+    }
+
+    a {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        text-decoration: none;
+        color: black;
+        font-size: 1em;
+        font-weight: bold;
+
+        &.a-logo {
+            justify-content: space-between;
+            max-width: 200px;
+        }
+
+        &:hover {
+            color: var(--links);
+            text-decoration: underline;
+        }
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        border-top: 2px solid white;
+
+        li {
+            border-radius: 0 0 10px 10px;
+            font-size: 1em;
+            background-color: white;
+            mix-blend-mode: screen;
+
+            &:hover {
+                background-color: black;
+                mix-blend-mode: multiply;
+            }
+
+            a {
+                padding: 10px 20px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+main {
+    min-height: 100%;
+    padding: 20px 40px;
+
+    h1 {
+        border-bottom: 2px solid black;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .wish-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .wish {
+        width: 400px;
+        cursor: pointer;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+        background: var(--wishes);
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: capitalize;
+        box-shadow: var(--box-shadows);
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    .raye {
+        text-decoration: line-through;
+        color: #f49797;
+        background: var(--wishes-clicked);
+    }
+
+    .wish-detail {
+        width: calc(90% - 20px);
+        margin: 20px auto;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+        background: var(--wishes);
+        text-decoration: none;
+        box-shadow: var(--box-shadows);
+
+        h2 {
+            text-decoration: underline;
+            text-transform: capitalize;
+        }
+
+        .bucket-footer {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+            gap: 10px;
+            margin-top: 40px;
+            border-top: 1px solid white;
+            padding: 20px;
+            color: white;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    background: var(--header-footer);
+    padding: 10px;
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+}
