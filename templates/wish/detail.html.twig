@@ -1,21 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wish Detail - Bucket List{% endblock %}
+{% block title %}{{ wish.title }} - Bucket List{% endblock %}
 
 {% block body %}
     <main>
         <div class="wish-detail">
-            <h2>{{ wish.title }}</h2>
-            <p>
-                {{ wish.description }}
+            <h2 class="wish-title">
+                {{ wish.title }}
+            </h2>
+
+            <p class="wish-description">
+                {{ wish.description ?: 'Aucune description fournie pour ce souhait.' }}
             </p>
+
             <div class="bucket-footer">
-                <div>{{ wish.author }}</div>
-                <div>-</div>
-                <div>{{ wish.dateCreated|date('d-m-Y') }}</div>
+                <div class="wish-meta">
+                    <span>{{ wish.author }}</span>
+                    <span>-</span>
+                    <span>{{ wish.dateCreated|date('d/m/Y') }}</span>
+                    {% if wish.dateUpdated %}
+                        <span>-</span>
+                        <span>Modifié le {{ wish.dateUpdated|date('d/m/Y') }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="category-tag {% if not wish.category %}no-category{% endif %}">
+                    {% if wish.category %}
+                        #{{ wish.category.name }}
+                    {% else %}
+                        Sans catégorie
+                    {% endif %}
+                </div>
             </div>
         </div>
-        <a href="{{ path('update_wish', {id: wish.id}) }}">Edit</a>
-        <a href="{{ path('delete_wish', {id: wish.id}) }}">Delete</a>
+
+        <div class="wish-actions">
+            <a href="{{ path('update_wish', {id: wish.id}) }}" class="btn btn-soft">
+                Modifier
+            </a>
+            <a href="{{ path('delete_wish', {id: wish.id}) }}" class="btn btn-danger-soft"
+               onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce souhait ?')">
+                Supprimer
+            </a>
+        </div>
     </main>
 {% endblock %}

@@ -33,6 +33,9 @@ class Wish
     #[ORM\Column(nullable: true)]
     private ?\DateTime $dateUpdated = null;
 
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    private ?Category $category = null;
+
     public function __construct() {
         $this->dateCreated = new \DateTime();
         $this->isPublished = false;
@@ -110,10 +113,22 @@ class Wish
         return $this->dateUpdated;
     }
 
-    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
     public function setDateUpdated(): static
     {
         $this->dateUpdated = new \DateTime();
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

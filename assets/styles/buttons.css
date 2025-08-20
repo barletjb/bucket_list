@@ -1,0 +1,51 @@
+
+.wish-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+}
+
+.btn-neutral {
+    background: #f1f1f1;
+    color: #333;
+}
+.btn-neutral:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.btn-soft {
+    background: #dbeafe;
+    color: #1e40af;
+}
+.btn-soft:hover {
+    background: #bfdbfe;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
+}
+
+.btn-danger-soft {
+    background: #fee2e2;
+    color: #991b1b;
+}
+.btn-danger-soft:hover {
+    background: #fecaca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(153, 27, 27, 0.2);
+}

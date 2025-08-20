@@ -4,18 +4,22 @@
 
 {% block body %}
     <main>
-        <h1>La liste des buckets de la bucket-list !</h1>
+        <h1 class="page-title">La liste des buckets de la bucket-list !</h1>
+
         <div class="wish-list">
             {% for wish in wishes %}
-                <a href="{{ path('wish_detail', {'id' : wish.id}) }}">
-                    <div class="wish">
+                <a href="{{ path('wish_detail', {'id': wish.id}) }}" class="wish-card-link">
+                    <div class="wish-card">
                         {{ wish.title }}
                     </div>
                 </a>
+            {% else %}
+                <p class="no-wish">Aucun souhait pour le moment.</p>
             {% endfor %}
 
-            <div class="wish" data-controller="hello" data-action="click->hello#rayer">Battre Camille à Skull King
-                (répétable)
+            <!-- Exemple fixe -->
+            <div class="wish-card" data-controller="hello" data-action="click->hello#rayer">
+                Battre Camille à Skull King (répétable)
             </div>
         </div>
     </main>
