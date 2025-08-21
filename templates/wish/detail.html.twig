@@ -34,6 +34,7 @@
             </div>
         </div>
 
+        {% if is_granted('ROLE_ADMIN') %}
         <div class="wish-actions">
             <a href="{{ path('update_wish', {id: wish.id}) }}" class="btn btn-soft">
                 Modifier
@@ -43,5 +44,6 @@
                 Supprimer
             </a>
         </div>
+        {% endif %}
     </main>
 {% endblock %}

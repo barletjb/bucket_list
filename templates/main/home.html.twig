@@ -8,8 +8,12 @@
         <p>Note tes rêves, fixe-toi des objectifs et coche-les au fur et à mesure que tu les réalises.</p>
 
         <div class="actions">
+            {% if is_granted('IS_AUTHENTICATED') %}
             <a href="{{ path('wish_list') }}" class="btn btn-soft">Voir ma liste de wish</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('create_wish') }}" class="btn btn-soft">Ajouter un un wish</a>
+            {% endif %}
         </div>
 
         <section class="examples mt-4">

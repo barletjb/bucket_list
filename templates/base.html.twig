@@ -6,7 +6,9 @@
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
 
     {% block stylesheets %}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+              crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/header.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/wish.css') }}">
@@ -25,9 +27,20 @@
         </h1>
         <ul>
             <li><a href="{{ path('app_home') }}">Home</a></li>
-            <li><a href="{{ path('wish_list') }}">Buckets</a></li>
+            {% if is_granted('IS_AUTHENTICATED') %}
+                <li><a href="{{ path('wish_list') }}">Buckets</a></li>
+            {% endif %}
             <li><a href="{{ path('app_about') }}">About Us</a></li>
-            <li><a href="{{ path('create_wish') }}">New Wish</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('create_wish') }}">New Wish</a></li>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED') %}
+                <li><a href="{{ path('app_logout') }}">LOGOUT</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">LOGIN</a></li>
+
+            {% endif %}
+
         </ul>
     </nav>
 </header>
