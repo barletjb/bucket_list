@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Wish;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,6 +15,19 @@ class WishRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Wish::class);
+    }
+
+    public function getWishesWithCategory(int $nbPerPage, int $offset): Paginator
+    {
+        $q = $this->createQueryBuilder('w')
+            ->orderBy('w.dateCreated', 'DESC')
+            ->leftjoin('w.category', 'category')
+            ->addSelect('category')
+            ->setFirstResult($offset)
+            ->setMaxResults($nbPerPage)
+            ->getQuery();
+
+        return new Paginator($q);
     }
 
     //    /**
