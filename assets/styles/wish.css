@@ -7,6 +7,11 @@
     margin: 0 auto;
 }
 
+.wish-list .category-tag{
+    width: 50%;
+    margin: auto;
+}
+
 .wish-card {
     background: #fff;
     border-radius: 20px;

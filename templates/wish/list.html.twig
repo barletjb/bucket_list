@@ -11,16 +11,20 @@
                 <a href="{{ path('wish_detail', {'id': wish.id}) }}" class="wish-card-link">
                     <div class="wish-card">
                         {{ wish.title }}
+                        <div class="category-tag {% if not wish.category %}no-category{% endif %}">
+                            {% if wish.category %}
+                                #{{ wish.category.name }}
+                            {% else %}
+                                Sans catégorie
+                            {% endif %}
+                        </div>
                     </div>
                 </a>
+
             {% else %}
                 <p class="no-wish">Aucun souhait pour le moment.</p>
             {% endfor %}
 
-            <!-- Exemple fixe -->
-            <div class="wish-card" data-controller="hello" data-action="click->hello#rayer">
-                Battre Camille à Skull King (répétable)
-            </div>
         </div>
     </main>
 {% endblock %}
