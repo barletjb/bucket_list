@@ -3,7 +3,22 @@
 {% block title %}Bucket-List{% endblock %}
 
 {% block body %}
-    <main>
-        <h1>Voici la page d'accueil ! Youpi !</h1>
+    <main class="container">
+        <h1>Bienvenue sur ta Bucket-List</h1>
+        <p>Note tes rêves, fixe-toi des objectifs et coche-les au fur et à mesure que tu les réalises.</p>
+
+        <div class="actions">
+            <a href="{{ path('wish_list') }}" class="btn btn-primary">Voir ma liste de wish</a>
+            <a href="{{ path('create_wish') }}" class="btn btn-success">Ajouter un un wish</a>
+        </div>
+
+        <section class="examples mt-4">
+            <h2>Quelques idées pour ta Bucket-List :</h2>
+            <ul>
+                <li>Voyager dans 3 nouveaux pays</li>
+                <li>Surfer Nazaré</li>
+                <li>Surfer Belharra</li>
+            </ul>
+        </section>
     </main>
 {% endblock %}
