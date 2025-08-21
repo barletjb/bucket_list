@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register - Bucket List{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-
+<main class="container">
     <h1>Register</h1>
 
     {{ form_errors(registrationForm) }}
@@ -20,4 +20,5 @@
 
         <button type="submit" class="btn btn-soft">Register</button>
     {{ form_end(registrationForm) }}
+</main>
 {% endblock %}
