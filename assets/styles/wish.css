@@ -8,8 +8,11 @@
 }
 
 .wish-list .category-tag{
-    width: 50%;
-    margin: auto;
+    display: block;
+    width: fit-content;
+    margin: 8px auto 0;
+    padding: 0.4rem 1rem;
+    text-align: center;
 }
 
 .wish-card {
